@@ -27,4 +27,4 @@ A simple Vagrant LAMP setup running PHP7.2
 
 ````
 - Navigate to ``http://app.lan/``
-- Navigate to ``http://phpmyadmin.dev/`` (both username and password are 'root')
+- Navigate to ``http://phpmyadmin.lan/`` (both username and password are 'root')
