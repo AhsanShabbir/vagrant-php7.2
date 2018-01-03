@@ -41,12 +41,12 @@ cat << EOF | sudo tee -a /etc/apache2/sites-available/default.conf
 
 <VirtualHost *:80>
     DocumentRoot /var/www/app
-    ServerName ahsanshabbir.dev
+    ServerName app.lan
 </VirtualHost>
 
 <VirtualHost *:80>
     DocumentRoot /var/www/phpmyadmin
-    ServerName phpmyadmin.dev
+    ServerName phpmyadmin.lan
 </VirtualHost>
 EOF
 sudo a2ensite default.conf
@@ -67,4 +67,4 @@ sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 
 echo "-- Setup databases --"
 mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-mysql -uroot -proot -e "CREATE DATABASE my_database";
+mysql -uroot -proot -e "CREATE DATABASE new_db";
