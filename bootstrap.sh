@@ -17,10 +17,19 @@ sudo apt-get install -y --force-yes python-software-properties vim htop curl git
 echo "-- Install PPA's --"
 sudo add-apt-repository ppa:ondrej/php
 sudo add-apt-repository ppa:chris-lea/redis-server
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 Update
 
 echo "-- Install NodeJS --"
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+
+echo "-- Install Yarn --"
+
+sudo apt-get install cmdtest
+sudo apt-get update && sudo apt-get install yarn
 
 echo "-- Install packages --"
 sudo apt-get install -y --force-yes apache2 mysql-server-5.6 git-core nodejs rabbitmq-server redis-server
@@ -68,3 +77,4 @@ sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 echo "-- Setup databases --"
 mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 mysql -uroot -proot -e "CREATE DATABASE new_db";
+
